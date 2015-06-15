@@ -42,6 +42,7 @@ Add Toggl one-click time tracking to popular web tools.
   - [Sprintly][38]
   - [Google Calendar][39]
   - [TestRail][40]
+  - [ZohoCRM][41]
   
 ## Installing from the Web Store
 
@@ -118,6 +119,7 @@ Don't know how to start? Just check out the [user requested services][97] that h
 [38]: https://sprint.ly
 [39]: https://www.google.com/calendar
 [40]: https://testrail.com
+[41]: https://crm.zoho.com
 [97]: https://github.com/toggl/toggl-button/wiki/User-requested-buttons
 [98]: https://github.com/toggl/toggl-button/wiki/Adding-custom-domains
 [99]: https://github.com/toggl/toggl-button/pulls
