@@ -266,6 +266,7 @@ var TogglButton = {
       payload: {
         time_entry: {
           stop: stopTime.toISOString(),
+          tags: timeEntry.tags,
           duration: Math.floor(((stopTime - startTime) / 1000))
         }
       },

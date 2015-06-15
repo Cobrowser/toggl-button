@@ -416,7 +416,10 @@ var togglbutton = {
 
       if (link.classList.contains('active')) {
         deactivate();
-        opts = {type: 'stop'};
+        opts = {
+          type: 'stop',
+          tags: invokeIfFunction(params.tags)
+        };
       } else {
         activate();
         opts = {

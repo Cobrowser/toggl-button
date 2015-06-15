@@ -65,7 +65,9 @@
     "*://secure.helpscout.net/*",
     "*://*.getflow.com/*",
     "*://sprint.ly/*",
-    "*://www.google.com/calendar/*"
+    "*://www.google.com/calendar/*",
+    "*://crm.zoho.com/crm/*"
+
   ],
   "icons": {
     "16": "images/icon-16.png",
@@ -121,7 +123,8 @@
         "*://secure.helpscout.net/*",
         "*://*.getflow.com/*",
         "*://sprint.ly/*",
-        "*://www.google.com/calendar/*"
+        "*://www.google.com/calendar/*",
+        "*://crm.zoho.com/crm/*"
       ],
       "css": ["styles/style.css"],
       "js": ["scripts/common.js"]
@@ -302,6 +305,10 @@
     {
       "matches": ["*://www.google.com/calendar/*"],
       "js": ["scripts/content/google-calendar.js"]
+    },
+    {
+      "matches": ["*://crm.zoho.com/crm/*"],
+      "js": ["scripts/content/zoho_crm.js"]
     }
   ]
 }
