@@ -18,7 +18,9 @@ var TogglButton = {
   $lastSyncDate: null,
   $fullVersion: ("TogglButton/" + chrome.runtime.getManifest().version),
   $version: (chrome.runtime.getManifest().version),
-  $editForm: '<div id="toggl-button-edit-form">' +
+  $editForm:
+  '<div id="toggl-button-edit-form-wrapper">' +
+    '<div id="toggl-button-edit-form">' +
       '<form>' +
       '<a class="toggl-button {service} active" href="#">Stop timer</a>' +
       '<a id="toggl-button-hide">&times;</a>' +
@@ -39,7 +41,8 @@ var TogglButton = {
       '</div>' +
       '<div id="toggl-button-update">DONE</div>' +
       '</from>' +
-    '</div>',
+    '</div>' +
+  '</div>',
 
   fetchUser: function (token) {
     TogglButton.ajax('/me?with_related_data=true', {
