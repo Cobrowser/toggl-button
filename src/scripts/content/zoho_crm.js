@@ -2,17 +2,31 @@
 /*global $: false, document: false, togglbutton: false*/
 'use strict';
 
-togglbutton.render('#leftPanel:not(.toggl)', {observe: true}, function (elem) {
+togglbutton.render('#leftPanel:not(.toggl)', {
+  observe: true
+}, function(elem) {
   var link, description, newElem, freeSpace, elTogglButton,
     tags = [],
     numElem = $('#entIdForZMail', elem),
     titleElem = $('.dvTitle', elem),
     tagLeadSource = $('[id="value_Lead Source"]'),
     tagLead = $('[id="headerlabel_Lead Owner"]'),
-    tagDeal = $('[id="headerlabel_Potential Owner"]');
+    tagDeal = $('[id="headerlabel_Potential Owner"]'),
+    LeadDealId = $('[id="id"]'),
+    tagId = LeadDealId ? LeadDealId.value : false,
+    dealStage = $('[id="headervalue_Stage"]'),
+    tagDealStage = dealStage ? dealStage.innerHTML : false;
 
   if (tagDeal || tagLead) {
-    tagDeal ? tags.push('Deal') : tags.push('Lead');
+    if (tagDeal) {
+      tags.push('Deal')
+      if (tagId) tags.push('Deal_ID_' + tagId);
+      if (tagDealStage) tags.push('Stage_' + tagDealStage);
+    } else {
+      tags.push('Lead');
+      if (tagId) tags.push('Lead_ID_' + tagId);
+    }
+
     if (tagLeadSource.innerText.length) {
       tags.push('source_' + tagLeadSource.innerText.toLowerCase());
     } else {
@@ -32,12 +46,12 @@ togglbutton.render('#leftPanel:not(.toggl)', {observe: true}, function (elem) {
       tags: tags
     });
 
-    document.addStyle = function (str, hoo, med) {
+    document.addStyle = function(str, hoo, med) {
       var el = document.createElement('style');
       el.type = "text/css";
       el.media = med || 'screen';
       if (hoo) el.title = hoo;
-      if (el.styleSheet) el.styleSheet.cssText = str;//IE only
+      if (el.styleSheet) el.styleSheet.cssText = str; //IE only
       else el.appendChild(document.createTextNode(str));
       return document.getElementsByTagName('head')[0].appendChild(el);
     };
